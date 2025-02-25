@@ -15,26 +15,18 @@
         padding: 0;
     }
 
-    /* Section Heading */
     .section-heading {
         text-align: center;
-          margin-bottom:60px;
-          position:fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          z-index: 1000;
-          background-color: rgba(0, 0, 0, 0.8); /* Darker background for readability */
-          padding: 10px 0;
-          color:white;
-          font-size: 2rem;
-          font-weight: bold;
-          
+        margin-bottom: 60px;
+        color: white;
+        font-size: 2rem;
+        font-weight: bold;
     }
+
     #skills {
-    margin-top: 100px; /* Added margin to create space between title and first row of cards */
-}
-    /* Card Styling */
+        margin-top: 100px;
+    }
+
     .card {
         border: none;
         border-radius: 10px;
@@ -42,28 +34,42 @@
     }
 
     .card-body {
-        margin-bottom:60px;
         text-align: center;
     }
 
     .card img {
         height: 200px;
-          object-fit: cover;
-          width: 100%;
+        object-fit: cover;
+        width: 100%;
     }
 
     .card-title {
         font-size: 1.5rem;
         font-weight: bold;
     }
-
-    .card-text {
-        font-size: 1rem;
-        color: #555;
-    }
   </style>
 </head>
 <body>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Portfolio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="aboutme.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="skills.html">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="certifications.html">Certifications</a></li>
+          <li class="nav-item"><a class="nav-link" href="project.html">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
   <section id="skills" class="container py-5">
     <h2 class="section-heading">Skills</h2>
     <h3 style="color: blue;"><b><u>Programming Languages & Data Science Tools:-</b></u></h3>
@@ -73,233 +79,18 @@
           <img src="python.jpg" alt="Python Icon" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title">Python</h5>
-            <p class="card-text"></p>
           </div>
         </div>
       </div>
-      
       <div class="col">
         <div class="card">
           <img src="java.png" alt="Java Icon" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title">Java</h5>
-            <p class="card-text"></p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="col">
-        <div class="card">
-          <img src="sql.jpg" alt="SQL Icon" class="card-img-top">
-          <div class="card-body">
-            <h5 class="card-title">SQL</h5>
-            <p class="card-text"></p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="col">
-        <div class="card">
-          <img src="c.png" alt="C Icon" class="card-img-top">
-          <div class="card-body">
-            <h5 class="card-title">C</h5>
-            <p class="card-text"></p>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mt-4">
-    
-      <div class="col">
-        <div class="card">
-          <img src="r.jpg" alt="R Icon" class="card-img-top">
-          <div class="card-body">
-            <h5 class="card-title">R</h5>
-            <p class="card-text"></p>
-          </div>
-        </div>
-      </div>
-   
-      <div class="col">
-        <div class="card">
-          <img src="ml.jpg" alt="Machine Learning Icon" class="card-img-top">
-          <div class="card-body">
-            <h5 class="card-title">Machine Learning</h5>
-            <p class="card-text"></p>
-          </div>
-        </div>
-      </div>
- 
-      <div class="col">
-        <div class="card">
-          <img src="analysis.jpg" alt="Data Analysis Icon" class="card-img-top">
-          <div class="card-body">
-            <h5 class="card-title">Data Analysis</h5>
-            <p class="card-text"></p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="col">
-        <div class="card">
-          <img src="visual.jpg" alt="Data Visualization Icon" class="card-img-top">
-          <div class="card-body">
-            <h5 class="card-title">Data Visualization</h5>
-            <p class="card-text"></p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mt-4">
- 
-        <div class="col">
-          <div class="card">
-            <img src="numpy.png" alt="NumPy Icon" class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title">NumPy</h5>
-              <p class="card-text"></p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col">
-          <div class="card">
-            <img src="pandas.png" alt="Pandas Icon" class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title">Pandas</h5>
-              <p class="card-text"></p>
-            </div>
-          </div>
-        </div>
-      
-        <div class="col">
-          <div class="card">
-            <img src="scikit.png" alt="SciKit Icon" class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title">SciKit</h5>
-              <p class="card-text"></p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col">
-          <div class="card">
-            <img src="scipy.png" alt="SciPy Icon" class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title">SciPy</h5>
-              <p class="card-text"></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mt-4">
-  
-            <div class="col">
-              <div class="card">
-                <img src="mat.png" alt="Matplotlib Icon" class="card-img-top">
-                <div class="card-body">
-                  <h5 class="card-title">Matplotlib</h5>
-                  <p class="card-text"></p>
-                </div>
-              </div>
-            </div>
-        
-            <div class="col">
-              <div class="card">
-                <img src="sea.jpg" alt="Seaborn Icon" class="card-img-top">
-                <div class="card-body">
-                  <h5 class="card-title">Seaborn</h5>
-                  <p class="card-text"></p>
-                </div>
-              </div>
-            </div>
-          
-            <div class="col">
-              <div class="card">
-                <img src="excel.png" alt="Excel Icon" class="card-img-top">
-                <div class="card-body">
-                  <h5 class="card-title">MS Excel</h5>
-                  <p class="card-text"></p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <h3 style="color: blue;"><u><b>Soft Skills:-</b></u></h3>
-          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mt-4">
- 
-            <div class="col">
-              <div class="card">
-                <img src="Analytical.png" alt="Analytical Thinking Icon" class="card-img-top">
-                <div class="card-body">
-                  <h5 class="card-title">Analytical Thinking</h5>
-                  <p class="card-text"></p>
-                </div>
-              </div>
-            </div>
-            
-            <div class="col">
-              <div class="card">
-                <img src="problem.jpg" alt="Problem-Solving Icon" class="card-img-top">
-                <div class="card-body">
-                  <h5 class="card-title">Problem-Solving</h5>
-                  <p class="card-text"></p>
-                </div>
-              </div>
-            </div>
-          
-            <div class="col">
-              <div class="card">
-                <img src="team.jpg" alt="Team Collaboration Icon" class="card-img-top">
-                <div class="card-body">
-                  <h5 class="card-title">Team Collaboration</h5>
-                  <p class="card-text"></p>
-                </div>
-              </div>
-            </div>
-            
-            <div class="col">
-              <div class="card">
-                <img src="adapt.jpg" alt="Adaptability Icon" class="card-img-top">
-                <div class="card-body">
-                  <h5 class="card-title">Adaptability</h5>
-                  <p class="card-text"></p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <h3 style="color: blue;"><b><u>Languages:-</b></u></h3>
-          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mt-4">
- 
-            <div class="col">
-              <div class="card">
-                <img src="eng.jpg" alt="English Icon" class="card-img-top">
-                <div class="card-body">
-                  <h5 class="card-title">English(Proficient)</h5>
-                  <p class="card-text"></p>
-                </div>
-              </div>
-            </div>
-            
-            <div class="col">
-              <div class="card">
-                <img src="tel.png" alt="Telugu Icon" class="card-img-top">
-                <div class="card-body">
-                  <h5 class="card-title">Telugu (Proficient)</h5>
-                  <p class="card-text"></p>
-                </div>
-              </div>
-            </div>
-          
-            <div class="col">
-              <div class="card">
-                <img src="hin.jpg" alt="Hindi Icon" class="card-img-top">
-                <div class="card-body">
-                  <h5 class="card-title">Hindi</h5>
-                  <p class="card-text"></p>
-                </div>
-              </div>
-            </div>
   </section>
 
   <!-- Bootstrap JS and dependencies -->
