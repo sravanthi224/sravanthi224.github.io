@@ -1,331 +1,517 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Skills - Portfolio</title>
   <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-        background: url("Picture1.jpg") no-repeat center center fixed;
-        background-size: cover;
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-    }
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
-    /* Navigation Bar */
-    .navbar {
+  <style>
+    /* style.css */
+
+/* Base body styling */
+body {
+  background: url("Picture1.jpg") no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #eee;
+  overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+      position: fixed;
       top: 0;
       left: 0;
       right: 0;
       z-index: 1000;
-      background-color: rgba(0, 0, 0, 0.7); /* Transparent background */
+      background-color: rgba(0, 0, 0, 0.85);
       padding: 10px 0;
-    }
-    .navbar-brand {
-        font-size: 2rem;
-        font-weight: bold;
-        color: white !important;
-    }
-    .nav-link {
-        color: white !important;
-    }
-    .navbar a:hover {
-      background-color: #f39c12;
-      border-radius: 5px;
-    }
-  
-    /* Card Styling */
-    .card {
-        border: none;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
     }
 
-    .card-body {
-        margin-bottom:60px;
-        text-align: center;
-    }
+.navbar.scrolled {
+  background-color: rgba(15, 15, 15, 0.95);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+}
 
-    .card img {
-        height: 200px;
-          object-fit: cover;
-          width: 100%;
-    }
+.navbar a {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+}
 
-    .card-title {
-        font-size: 1.5rem;
-        font-weight: bold;
-    }
 
-    .card-text {
-        font-size: 1rem;
-        color: #555;
-    }
+.navbar a:hover,
+.navbar a:focus {
+  background-color: #f39c12;
+  color: black;
+  border-radius: 5px;
+  outline: none;
+}
+
+/* Section */
+section {
+  padding: 140px 15px 80px;
+  min-height: 100vh;
+}
+
+.section-heading {
+  font-size: 4.5rem;
+  color: #141414;
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 60px;
+  font-family: 'Cinzel Decorative', serif;
+  letter-spacing: 6px;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+  font-weight: 700;
+  opacity: 0;
+  transform: scale(0.95);
+  animation: fadeZoomIn 1s forwards;
+}
+
+.wrapper {
+  background-color: rgba(0, 0, 0, 0.65);
+  border-radius: 15px;
+  padding: 25px 20px;
+  margin-bottom: 50px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideUp 1s forwards;
+  animation-delay: 0.3s;
+}
+
+.sub-heading {
+  color: #f4f4f9;
+  text-align: center;
+  font-family: 'Cinzel', serif;
+  font-size: 2.4rem;
+  letter-spacing: 1.5px;
+  margin-bottom: 30px;
+  font-weight: 600;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+  font-style: italic;
+  opacity: 0;
+  animation: fadeSlideUp 1s forwards;
+  animation-delay: 0.5s;
+}
+
+.card {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(145deg, #222222, #1a1a1a);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeSlideUp 0.8s forwards;
+}
+
+/* Animate individual cards */
+.row > .col > .card:nth-child(1) { animation-delay: 0.6s; }
+.row > .col > .card:nth-child(2) { animation-delay: 0.7s; }
+.row > .col > .card:nth-child(3) { animation-delay: 0.8s; }
+.row > .col > .card:nth-child(4) { animation-delay: 0.9s; }
+
+.card:hover,
+.card:focus-within {
+  transform: scale(1.07);
+  box-shadow: 0 12px 28px rgba(243, 156, 18, 0.6);
+  z-index: 5;
+}
+
+.card-img-top {
+  height: 180px;
+  object-fit: contain;
+  padding: 15px;
+  background-color: #111;
+  border-radius: 15px 15px 0 0;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .card-img-top,
+.card:focus-within .card-img-top {
+  transform: scale(1.1);
+}
+
+.card-body {
+  text-align: center;
+  padding: 15px 10px 25px;
+}
+
+.card-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #f39c12;
+  margin-bottom: 8px;
+  font-family: 'Cinzel', serif;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #ccc;
+  min-height: 48px;
+}
+
+@keyframes fadeZoomIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .section-heading {
+    font-size: 3rem;
+  }
+  .sub-heading {
+    font-size: 1.8rem;
+  }
+  .card-img-top {
+    height: 150px;
+  }
+  section {
+    padding: 100px 15px 60px;
+  }
+}
+
   </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container d-flex justify-content-center">
-      <a class="navbar-brand text-center" href="#">Skills</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="aboutme.html">About Me</a></li>
-          <li class="nav-item"><a class="nav-link" href="skills.html">Skills</a></li>
-          <li class="nav-item"><a class="nav-link" href="certifications.html">Certifications</a></li>
-          <li class="nav-item"><a class="nav-link" href="project.html">Projects</a></li>
-  
-        </ul>
-      </div>
-    </div>
-  </nav>
 
-  <section id="skills" class="container py-5">
-    <h1 class="section-heading" style="color: rgb(11, 1, 1);text-align: center;font-family:Georgia, 'Times New Roman', Times, serif"><b>SKILLS</b></h1>
-    <h3 style="color: blue;"><b><u>Programming Languages & Data Science Tools:-</b></u></h3>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container-fluid px-4">
+    <a class="navbar-brand text-white fw-bold" href="index.html">Portfolio</a>
+
+    <!-- Toggler button for mobile devices -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link text-white" href="index.html#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="aboutme.html">About</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="skills.html">Skills</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="certifications.html">Certifications</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="project.html">Projects</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<section id="skills" class="container py-5">
+  <h1 class="section-heading">SKILLS</h1>
+
+  <!-- Programming & Data Languages -->
+  <div style="background-color: rgba(0, 0, 0, 0.6); border-radius: 10px; padding: 20px;">
+    <h2 style="color: rgb(244, 244, 249); text-align: center; font-family: 'Cinzel', serif; font-size: 36px; letter-spacing: 1px; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">
+      <i><b>Programming & Data Languages</b></i>
+    </h2>
+    <br>
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
       <div class="col">
         <div class="card">
           <img src="python.jpg" alt="Python Icon" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title">Python</h5>
-            <p class="card-text"></p>
+            <p class="card-text">Powerful programming language for data science and machine learning.</p>
           </div>
         </div>
       </div>
-      
       <div class="col">
         <div class="card">
           <img src="java.png" alt="Java Icon" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title">Java</h5>
-            <p class="card-text"></p>
+            <p class="card-text">Robust object-oriented programming language widely used in enterprise.</p>
           </div>
         </div>
       </div>
-      
       <div class="col">
         <div class="card">
           <img src="sql.jpg" alt="SQL Icon" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title">SQL</h5>
-            <p class="card-text"></p>
+            <p class="card-text">Query language for managing and manipulating relational databases efficiently.</p>
           </div>
         </div>
       </div>
-      
       <div class="col">
         <div class="card">
           <img src="c.png" alt="C Icon" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title">C</h5>
-            <p class="card-text"></p>
+            <p class="card-text">Powerful low-level language ideal for systems programming and embedded applications.</p>
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mt-4">
-    
       <div class="col">
         <div class="card">
           <img src="r.jpg" alt="R Icon" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title">R</h5>
-            <p class="card-text"></p>
+            <p class="card-text">Statistical programming language designed for data analysis, visualization, and reporting.</p>
           </div>
         </div>
       </div>
-   
+    </div>
+  </div>
+
+  <!-- Data Science Tools & Libraries -->
+  <div style="background-color: rgba(0, 0, 0, 0.6); border-radius: 10px; padding: 20px; margin-top: 30px;">
+    <h2 style="color: rgb(244, 244, 249); text-align: center; font-family: 'Cinzel', serif; font-size: 36px; letter-spacing: 1px; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">
+      <i><b>Data Science Tools & Libraries</b></i>
+    </h2>
+    <br>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
       <div class="col">
         <div class="card">
           <img src="ml.jpg" alt="Machine Learning Icon" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title">Machine Learning</h5>
-            <p class="card-text"></p>
+            <p class="card-text">Techniques and tools to build intelligent predictive models.</p>
           </div>
         </div>
       </div>
- 
       <div class="col">
         <div class="card">
           <img src="analysis.jpg" alt="Data Analysis Icon" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title">Data Analysis</h5>
-            <p class="card-text"></p>
+            <p class="card-text">Process of inspecting, cleaning, and modeling data to extract useful insights.</p>
           </div>
         </div>
       </div>
-      
       <div class="col">
         <div class="card">
           <img src="visual.jpg" alt="Data Visualization Icon" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title">Data Visualization</h5>
-            <p class="card-text"></p>
+            <p class="card-text">Techniques and tools used to graphically represent data for better understanding.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="numpy.png" alt="NumPy Icon" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">NumPy</h5>
+            <p class="card-text">High-performance library for numerical computing with powerful array operations.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="pandas.png" alt="Pandas Icon" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">Pandas</h5>
+            <p class="card-text">Data manipulation and analysis library with intuitive DataFrame structures.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="scikit.png" alt="SciKit Icon" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">SciKit</h5>
+            <p class="card-text">Machine learning library with tools for classification, regression, and clustering.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="scipy.png" alt="SciPy Icon" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">SciPy</h5>
+            <p class="card-text">Scientific computing library built on NumPy, offering advanced functions for optimization, integration, interpolation, linear algebra, and statistics.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="mat.png" alt="Matplotlib Icon" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">Matplotlib</h5>
+            <p class="card-text">2D plotting library for creating static, animated, and interactive visualizations.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="sea.jpg" alt="Seaborn Icon" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">Seaborn</h5>
+            <p class="card-text">Statistical data visualization library based on Matplotlib with attractive defaults.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="excel.png" alt="Excel Icon" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">MS Excel</h5>
+            <p class="card-text">Spreadsheet tool for data entry, analysis, visualization, and pivot table operations.</p>
           </div>
         </div>
       </div>
     </div>
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mt-4">
- 
-        <div class="col">
-          <div class="card">
-            <img src="numpy.png" alt="NumPy Icon" class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title">NumPy</h5>
-              <p class="card-text"></p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col">
-          <div class="card">
-            <img src="pandas.png" alt="Pandas Icon" class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title">Pandas</h5>
-              <p class="card-text"></p>
-            </div>
-          </div>
-        </div>
-      
-        <div class="col">
-          <div class="card">
-            <img src="scikit.png" alt="SciKit Icon" class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title">SciKit</h5>
-              <p class="card-text"></p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col">
-          <div class="card">
-            <img src="scipy.png" alt="SciPy Icon" class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title">SciPy</h5>
-              <p class="card-text"></p>
-            </div>
+  </div>
+
+  <!-- Web Technologies -->
+  <div style="background-color: rgba(0, 0, 0, 0.6); border-radius: 10px; padding: 20px; margin-top: 30px;">
+    <h2 style="color: rgb(244, 244, 249); text-align: center; font-family: 'Cinzel', serif; font-size: 36px; letter-spacing: 1px; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">
+      <i><b>Web Technologies</b></i>
+    </h2>
+    <br>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+      <div class="col">
+        <div class="card">
+          <img src="html.jpg" alt="HTML Icon" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">HTML</h5>
+            <p class="card-text">Standard markup language for creating and structuring web pages.</p>
           </div>
         </div>
       </div>
-      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mt-4">
-  
-            <div class="col">
-              <div class="card">
-                <img src="mat.png" alt="Matplotlib Icon" class="card-img-top">
-                <div class="card-body">
-                  <h5 class="card-title">Matplotlib</h5>
-                  <p class="card-text"></p>
-                </div>
-              </div>
-            </div>
-        
-            <div class="col">
-              <div class="card">
-                <img src="sea.jpg" alt="Seaborn Icon" class="card-img-top">
-                <div class="card-body">
-                  <h5 class="card-title">Seaborn</h5>
-                  <p class="card-text"></p>
-                </div>
-              </div>
-            </div>
-          
-            <div class="col">
-              <div class="card">
-                <img src="excel.png" alt="Excel Icon" class="card-img-top">
-                <div class="card-body">
-                  <h5 class="card-title">MS Excel</h5>
-                  <p class="card-text"></p>
-                </div>
-              </div>
-            </div>
+      <div class="col">
+        <div class="card">
+          <img src="css.jpg" alt="CSS Icon" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">CSS</h5>
+            <p class="card-text">Style sheet language used for designing and customizing web content visually.</p>
           </div>
-          <h3 style="color: blue;"><u><b>Soft Skills:-</b></u></h3>
-          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mt-4">
- 
-            <div class="col">
-              <div class="card">
-                <img src="Analytical.png" alt="Analytical Thinking Icon" class="card-img-top">
-                <div class="card-body">
-                  <h5 class="card-title">Analytical Thinking</h5>
-                  <p class="card-text"></p>
-                </div>
-              </div>
-            </div>
-            
-            <div class="col">
-              <div class="card">
-                <img src="problem.jpg" alt="Problem-Solving Icon" class="card-img-top">
-                <div class="card-body">
-                  <h5 class="card-title">Problem-Solving</h5>
-                  <p class="card-text"></p>
-                </div>
-              </div>
-            </div>
-          
-            <div class="col">
-              <div class="card">
-                <img src="team.jpg" alt="Team Collaboration Icon" class="card-img-top">
-                <div class="card-body">
-                  <h5 class="card-title">Team Collaboration</h5>
-                  <p class="card-text"></p>
-                </div>
-              </div>
-            </div>
-            
-            <div class="col">
-              <div class="card">
-                <img src="adapt.jpg" alt="Adaptability Icon" class="card-img-top">
-                <div class="card-body">
-                  <h5 class="card-title">Adaptability</h5>
-                  <p class="card-text"></p>
-                </div>
-              </div>
-            </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="js.jpg" alt="JavaScript Icon" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">JavaScript</h5>
+            <p class="card-text">Dynamic scripting language for building interactive and responsive web pages.</p>
           </div>
-          <h3 style="color: blue;"><b><u>Languages:-</b></u></h3>
-          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mt-4">
- 
-            <div class="col">
-              <div class="card">
-                <img src="eng.jpg" alt="English Icon" class="card-img-top">
-                <div class="card-body">
-                  <h5 class="card-title">English(Proficient)</h5>
-                  <p class="card-text"></p>
-                </div>
-              </div>
-            </div>
-            
-            <div class="col">
-              <div class="card">
-                <img src="tel.png" alt="Telugu Icon" class="card-img-top">
-                <div class="card-body">
-                  <h5 class="card-title">Telugu (Proficient)</h5>
-                  <p class="card-text"></p>
-                </div>
-              </div>
-            </div>
-          
-            <div class="col">
-              <div class="card">
-                <img src="hin.jpg" alt="Hindi Icon" class="card-img-top">
-                <div class="card-body">
-                  <h5 class="card-title">Hindi</h5>
-                  <p class="card-text"></p>
-                </div>
-              </div>
-            </div>
-  </section>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <!-- Bootstrap JS and dependencies -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"></script>
+  <!-- Soft Skills -->
+  <br><br>
+  <div class="wrapper">
+    <h2 class="sub-heading">Soft Skills</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+      <div class="col">
+        <div class="card" tabindex="0">
+          <div class="card-body">
+            <h5 class="card-title">Communication</h5>
+            <p class="card-text">Effective verbal and written skills for collaboration.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" tabindex="0">
+          <div class="card-body">
+            <h5 class="card-title">Time Management</h5>
+            <p class="card-text">Prioritizing tasks to meet deadlines efficiently.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" tabindex="0">
+          <div class="card-body">
+            <h5 class="card-title">Teamwork</h5>
+            <p class="card-text">Collaborating effectively with diverse groups.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" tabindex="0">
+          <div class="card-body">
+            <h5 class="card-title">Problem-Solving</h5>
+            <p class="card-text">Analytical skills to find creative solutions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Languages -->
+  <br><br>
+  <div style="background-color: rgba(0, 0, 0, 0.6); border-radius: 10px; padding: 20px;">
+    <h2 style="color: rgb(244, 244, 249); text-align: center; font-family: 'Cinzel', serif; font-size: 36px; letter-spacing: 1px; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">
+      <i><b>Languages</b></i>
+    </h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mt-4">
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">English (Proficient)</h5>
+            <p class="card-text">Skilled in English for academic, professional, and technical communication.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Telugu (Proficient)</h5>
+            <p class="card-text">Fluent in Telugu, enabling clear and effective communication in regional contexts.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Hindi</h5>
+            <p class="card-text">Proficient in Hindi for verbal and written communication across diverse regions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Change navbar background on scroll
+    window.addEventListener("scroll", function () {
+      const navbar = document.querySelector(".navbar");
+      if (window.scrollY > 40) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+  </script>
 </body>
 </html>
